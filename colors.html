@@ -1,0 +1,35 @@
+<html>
+<head>
+<style>
+html, body{
+	width:100%;
+	height:100%;
+}
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+h1{ font-size: 30vmin; }
+</style>
+</head>
+<body onclick="newColorCode()" onmousedown="colorBackground(true)" onmouseup="colorBackground(false)">
+<h1 id="color-code"></h1>
+<script>
+var colorCode;
+function newColorCode(){
+	colorCode = "";
+	for(var i = 0; i < 6; i++)
+		colorCode += "0123456789ABCDEF".charAt(Math.random()*16);
+	document.getElementById("color-code").innerHTML = "#" + colorCode;
+}
+newColorCode();
+function colorBackground(useColorCode){
+	if(useColorCode)
+		document.body.style.backgroundColor = "#" + colorCode;
+	else
+		document.body.style.backgroundColor = "#FFFFFF";
+}
+</script>
+</body>
+</html>
